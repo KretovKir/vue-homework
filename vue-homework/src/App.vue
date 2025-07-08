@@ -1,9 +1,14 @@
 <script setup>
-  let date = '8 июля 2025 года'
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth() + 1
+  const day = now.getDate();
+  const formattedDate = `${year}-${month}-${day}`
+
 </script>
 
 <template>
-  <h1>{{ date }}</h1>
+  <h1>{{ formattedDate }}</h1>
 </template>
 
 <style scoped>
