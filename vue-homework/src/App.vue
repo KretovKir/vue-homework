@@ -1,14 +1,11 @@
 <script setup>
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = now.getMonth() + 1
-  const day = now.getDate();
-  const formattedDate = `${year}-${month}-${day}`
-
+  import Button from './components/Button.vue'
 </script>
 
 <template>
-  <h1>{{ formattedDate }}</h1>
+  <Button>
+    Начать игру
+  </Button>
 </template>
 
 <style scoped>
