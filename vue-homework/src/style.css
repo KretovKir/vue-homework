@@ -12,3 +12,16 @@ body{
   font-family: var(--font);
 }
 
+@keyframes rotateAnimation {
+  0% {
+    transform: rotateY(0deg); 
+  }
+  100% {
+    transform: rotateY(180deg); 
+  }
+}
+
+.rotating{
+  transform-origin: center;
+  animation: rotateAnimation 2s linear;
+}
