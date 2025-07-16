@@ -5,9 +5,9 @@ import Good from './Good.vue';
   const {cardNum, word} = defineProps(['cardNum', 'word', 'translatedWord'])
   const emits = defineEmits(['rotateCard', 'statusSendError', 'statusSendGood'])
 
-  function rotation(){
+  function rotation(event){
     emits('rotateCard', 'rotate')
-    document.querySelector('.card').classList.add('rotating')
+    event.target.classList.add('rotating')
   }
 
   function statusSendError(){
@@ -21,33 +21,29 @@ import Good from './Good.vue';
 </script>
 
 <template>
-  <div class="card" @click="rotation">
-    <!-- <div class="front">
-      <div class="card-border">
-        <span class="card-num">{{ cardNum }}</span>
-        <span class="word">{{ word }}</span>
-      </div>
-    </div> -->
-    
-      <div class="card-border">
-        <span class="card-num">{{ cardNum }}</span>
-        <span class="translatedWord">{{ translatedWord }}</span>
-        <div class="controllers">
+  <div class="card-container">
+    <div class="card">
+        <div class="card-border" @click="rotation">
+          <span class="card-num">{{ cardNum }}</span>
+          <span class="translatedWord">{{ translatedWord }}</span>
+        </div>
+        <div class="card-controllers">
           <Error @click="statusSendError"></Error>
           <Good @click="statusSendGood"></Good>
         </div>
-      </div>
-    
+    </div>
   </div>
 </template>
 
 <style scoped>
+  
   .card{
     width: 250px;
     height: 376px;
     padding: 24px;
     border-radius: 36px;
     box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
     
   }
 
@@ -73,7 +69,7 @@ import Good from './Good.vue';
   .card-border{
     border: 1px solid rgba(204, 232, 255, 1);
     border-radius: 12px;
-    position: relative;
+    /* position: relative; */
     height: 100%;
     display: flex;
     justify-content: center;
@@ -88,7 +84,7 @@ import Good from './Good.vue';
     background-color: var(--color-primary);
   }
 
-  .controllers{
+  .card-controllers{
     position: absolute;
     bottom: 0;
     left: 50%;

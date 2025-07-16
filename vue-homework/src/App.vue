@@ -3,6 +3,9 @@
   import Card from './components/Card.vue';
   import Header from './components/Header.vue';
 
+  function rotation(rotateStatus){
+    console.log(rotateStatus)
+  }
 
   function error(status){
     console.log(status)
@@ -15,7 +18,7 @@
 <template>
   <Header/>
 
-  <Card cardNum="01" word="dog" translatedWord="собака" @statusSendError="error" @statusSendGood="good"/>
+  <Card cardNum="01" word="dog" translatedWord="собака" @statusSendError="error" @statusSendGood="good" @rotateCard="rotation"/>
 
 
   <Button>
