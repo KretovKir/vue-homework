@@ -1,14 +1,29 @@
 <script setup>
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = now.getMonth() + 1
-  const day = now.getDate();
-  const formattedDate = `${year}-${month}-${day}`
+  import Button from './components/Button.vue'
+  import Card from './components/Card.vue';
+  import Header from './components/Header.vue';
 
+  function rotation(rotateStatus){
+    console.log(rotateStatus)
+  }
+
+  function error(status){
+    console.log(status)
+  }
+  function good(status){
+    console.log(status)
+  }
 </script>
 
 <template>
-  <h1>{{ formattedDate }}</h1>
+  <Header/>
+
+  <Card cardNum="01" word="dog" translatedWord="собака" @statusSendError="error" @statusSendGood="good" @rotateCard="rotation"/>
+
+
+  <Button>
+    Начать игру
+  </Button>
 </template>
 
 <style scoped>
