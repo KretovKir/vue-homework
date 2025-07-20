@@ -3,14 +3,14 @@
 import IconHeart from "./IconHeart.vue";
   
 
-  let score = ref(100)
+ let props = defineProps(['score'])
 
   
 </script>
 
 <template>
   <div class="score-container">
-    <span class="score-count">{{ score }}</span>
+    <span class="score-count">{{ props.score }}</span>
     <IconHeart></IconHeart>
   </div>
 
