@@ -1,6 +1,11 @@
 <script setup>
-  import IconHeart from "./IconHeart.vue";
-  const {score} = defineProps(['score']);
+  import { ref } from "vue";
+import IconHeart from "./IconHeart.vue";
+  
+
+  let score = ref(100)
+
+  
 </script>
 
 <template>
