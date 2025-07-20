@@ -3,30 +3,24 @@ import { ref } from 'vue';
 import Error from './Error.vue';
 import Good from './Good.vue';
 
+  const emit = defineEmits(['rotateCard', 'statusSendError', 'statusSendGood'])
+  const props = defineProps(['cardNum', 'word', 'translation'])
   
-  const emits = defineEmits(['rotateCard', 'statusSendError', 'statusSendGood'])
-  let cardNum = ref('01')
-  let state = ref('closed')
-  let word = ref('Dog')
-  let translation = ref('Собака')
-  let status = ref('pending')
+  
+  
   
   function rotation(event){
-    emits('rotateCard', 'rotate')
     const parent = event.target.closest('.card')
     parent.classList.toggle('flipped')
-    state.value = 'opened'
-    console.log(state.value)
+    emit('rotateCard', 'open')
   }
 
   function statusSendError(){
-    status.value = 'fail'
-    emits('statusSendError', 'error')
+    emit('statusSendError', 'fail')
   }
 
   function statusSendGood(){
-    status.value = 'pending'
-    emits('statusSendGood', 'good')
+    emit('statusSendGood', 'success')
   }
 
  
@@ -42,14 +36,14 @@ import Good from './Good.vue';
 
         <div class="front">
           <div class="card-border">
-            <span class="card-num">{{ cardNum }}</span>
-            <span class="word">{{ word }}</span>
+            <span class="card-num">{{ props.cardNum }}</span>
+            <span class="word">{{ props.word }}</span>
           </div>
         </div>
 
         <div class="back">
           <div class="card-border">
-            <span class="word">{{ translation }}</span>
+            <span class="word">{{ props.translation }}</span>
           </div>
           
           <div class="card-controllers">
