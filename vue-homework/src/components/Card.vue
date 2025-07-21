@@ -4,7 +4,7 @@ import Error from './Error.vue';
 import Good from './Good.vue';
 
   const emit = defineEmits(['rotateCard', 'statusSendError', 'statusSendGood'])
-  const props = defineProps(['cardNum', 'word', 'translation'])
+  const props = defineProps(['state', 'status ','cardNum', 'word', 'translation'])
   
   
   
@@ -12,7 +12,8 @@ import Good from './Good.vue';
   function rotation(event){
     const parent = event.target.closest('.card')
     parent.classList.toggle('flipped')
-    emit('rotateCard', 'open')
+    console.log(parent)
+    emit('rotateCard', 'opened')
   }
 
   function statusSendError(){

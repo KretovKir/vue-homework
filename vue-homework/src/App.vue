@@ -25,20 +25,25 @@
     }
 
   ])
-
+    
   
 
-  function rotated(rotateStatus){
-    cards.value.state = rotateStatus
+  function rotated(cardIndex, rotateStatus){
+    if(rotateStatus='closed'){
+///////////////ERROR!!!
+
+      cards.value[cardIndex].state = rotateStatus
+    }
+   
   }
 
   function error(status){
     console.log(status)
-    cards.value.status = status
+    cards.value[cardIndex].status = status
   }
   function good(status){
     console.log(status)
-    cards.value.status = status
+    cards.value[cardIndex].status = status
   }
 
 
@@ -47,9 +52,11 @@
 
 <template>
   <Header v-bind:score="score"/>
-
-  <Card v-bind='cards[0]' @statusSendError="error" @statusSendGood="good" @rotateCard="rotated"/>
-  <Card v-bind='cards[1]' @statusSendError="error" @statusSendGood="good" @rotateCard="rotated"/>
+  <div class="cards">
+    <Card v-bind='cards[0]' @statusSendError="error" @statusSendGood="good" @rotateCard="rotated" id="0"/>
+    <Card v-bind='cards[1]' @statusSendError="error" @statusSendGood="good" @rotateCard="rotated" id="1"/>
+  </div>
+  
 
 
   <Button>
@@ -58,5 +65,8 @@
 </template>
 
 <style scoped>
+  .cards{
+    display: flex;
 
+  }
 </style>
