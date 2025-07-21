@@ -3,5 +3,26 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --color-primary: #FFFFFF;
+  --color-btn-bg: #008BFE;
+  --font: "Roboto", sans-serif;
 }
 
+body{
+  font-family: var(--font);
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotateY(0deg); 
+  }
+  
+  100% {
+    transform: rotateY(180deg); 
+  }
+}
+
+.rotating{
+  transform-origin: center;
+  animation: rotateAnimation 2s linear;
+}
